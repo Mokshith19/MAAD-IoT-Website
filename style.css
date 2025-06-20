@@ -1,4 +1,9 @@
-/* Updated style.css for MAAD IoT SOLUTIONS PVT LTD */
+/* ============================================================
+   MAAD IoT SOLUTIONS PVT LTD - Main Stylesheet (style.css)
+   ------------------------------------------------------------
+   Author: MAAD IoT SOLUTIONS PVT LTD
+   Description: Core styles for the MAAD IoT website
+   ============================================================ */
 
 :root {
     --orange: #dd4e00;
@@ -7,18 +12,27 @@
     --black: #000;
 }
 
+html, body {
+  height: 100%;
+}
+
 html, body, #__next {
     height: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: 'Montserrat', Arial, sans-serif;
-    background: linear-gradient(135deg, var(--white) 70%, var(--orange) 100%);
-    color: var(--blue);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  margin: 0;
+  /* padding removed */
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: linear-gradient(135deg, var(--white) 70%, var(--orange) 100%);
+  color: var(--blue);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
 }
 
 #__next {
@@ -110,13 +124,6 @@ main {
     width: 100%;
 }
 
-.header-main {
-    background: linear-gradient(90deg, var(--orange) 0%, var(--white) 50%, var(--orange) 100%);
-    padding: 2rem 0 1rem 0;
-    text-align: center;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-}
-
 .logo {
     font-size: 2.5rem;
     font-weight: 700;
@@ -150,6 +157,7 @@ main {
     position: relative;
     z-index: 1;
     padding: 4rem 2rem;
+    margin-bottom: 2rem;
 }
 
 .hero::before {
@@ -164,10 +172,29 @@ main {
     z-index: 0;
 }
 
-.hero-title {
-    font-size: 2.8rem;
+.hero .logo h1 {
+    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem; /* reduced from default */
+    color: var(--blue);
+    text-shadow: 0 2px 8px #051c4622;
+    z-index: 1;
+    animation: fadeIn 1.2s ease;
+}
+
+.hero .subtitle h2 {
+    font-size: 1.4rem;
+    margin: 0.2rem 0; /* tighter spacing */
+    color: #a35c2c;
+    z-index: 1;
+    text-shadow: 0 1px 4px #051c4611;
+    animation: fadeIn 1.2s ease;
+}
+
+.hero-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-top: 0.8rem; /* reduced from 1rem */
     color: var(--blue);
     z-index: 1;
     text-shadow: 0 2px 8px #051c4622;
@@ -185,15 +212,15 @@ main {
 }
 
 .page-section {
-    max-width: 700px;
-    margin: 2rem auto;
-    background: rgba(255,255,255,0.18);
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 2px 16px #051c4611;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    transition: background 0.3s;
+  max-width: 860px; /* Slightly wider for medium screens */
+  margin: 3rem auto; /* Add more vertical margin */
+  background: rgba(255,255,255,0.18);
+  padding: 2rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #051c4611;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background 0.3s;
 }
 
 .page-section h2 {
@@ -245,10 +272,29 @@ main {
 }
 
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem; /* space between columns */
+  margin-top: 2rem;
+}
+
+.sector-column {
+  flex: 1;
+  max-width: 32%;
+}
+
+/* Desktop layout: 3 columns */
+@media (min-width: 768px) {
+  .services-grid {
+    flex-direction: row;
+    justify-content: space-between;
     gap: 2rem;
-    margin-top: 2rem;
+  }
+
+  .sector-column {
+    max-width: 32%;
+  }
 }
 
 .service-card {
@@ -424,9 +470,130 @@ footer {
     .hero-title {
         font-size: 2rem;
     }
+
+    .page-section {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .services-grid {
+    gap: 1rem;
+  }
 }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accordion styles */
+.accordion {
+  margin-top: 2rem;
+}
+
+.accordion-item {
+  border: 2px solid var(--orange);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 12px #051c4611;
+  padding-bottom: 0.5rem;
+}
+
+.accordion-header {
+  background-color: var(--orange);
+  color: white;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-header i {
+  transition: transform 0.3s;
+}
+
+.accordion-header.active i {
+  transform: rotate(180deg);
+}
+
+/* Collapse content only on mobile */
+@media (max-width: 767px) {
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0 1.5rem;
+  }
+
+  .accordion-header.active + .accordion-content {
+    max-height: 1500px;
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .accordion-content {
+    max-height: none !important;
+    padding: 1rem 1.5rem 1.5rem;
+    overflow: visible;
+  }
+
+  .accordion-header i {
+    display: none;
+  }
+
+  .accordion-header {
+    cursor: default;
+    background-color: #fff;
+    color: var(--blue);
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--orange);
+  }
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* uniform spacing between service cards */
+}
+
+.accordion-content .service-card {
+  margin: 1rem 0;
+}
+
+/* Expand visible section */
+.accordion-header.active + .accordion-content {
+  max-height: 1500px;
+  padding-bottom: 1.5rem;
+  transition: max-height 0.6s ease-in, padding 0.3s;
+}
+
+.cta-btn {
+  background-color: var(--orange);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  font-weight: 600;
+}
+
+.cta-btn:hover {
+  background-color: #c64300;
+  box-shadow: 0 4px 12px #dd4e0088;
 }
