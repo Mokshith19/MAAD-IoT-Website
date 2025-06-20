@@ -1,0 +1,432 @@
+/* Updated style.css for MAAD IoT SOLUTIONS PVT LTD */
+
+:root {
+    --orange: #dd4e00;
+    --blue: #051c46;
+    --white: #fff;
+    --black: #000;
+}
+
+html, body, #__next {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--white) 70%, var(--orange) 100%);
+    color: var(--blue);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#__next {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, var(--white) 70%, var(--orange) 100%);
+    padding: 0.5rem 2rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    border-bottom: 4px solid var(--orange);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+}
+
+.navbar-logo i {
+    font-size: 2rem;
+    color: var(--orange);
+    filter: drop-shadow(0 0 6px var(--orange));
+}
+
+.navbar-logo img {
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.navbar-logo span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #051c4622;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar-menu a {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    position: relative;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.navbar-menu a.active,
+.navbar-menu a:hover {
+    color: var(--white);
+    background: var(--orange);
+    box-shadow: 0 2px 8px #dd4e0088;
+}
+
+.navbar-menu a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--orange);
+    transition: width 0.3s;
+    border-radius: 2px;
+    margin-top: 2px;
+}
+
+.navbar-menu a:hover::after,
+.navbar-menu a.active::after {
+    width: 100%;
+}
+
+.header-main {
+    background: linear-gradient(90deg, var(--orange) 0%, var(--white) 50%, var(--orange) 100%);
+    padding: 2rem 0 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--blue);
+    text-shadow: 0 2px 8px #051c4622;
+}
+
+.logo img {
+    height: 48px;
+    vertical-align: middle;
+    margin-right: 0.7rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--orange);
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+    background: transparent;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    padding: 4rem 2rem;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--orange) 0%, transparent 70%);
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--blue);
+    z-index: 1;
+    text-shadow: 0 2px 8px #051c4622;
+    animation: fadeIn 1.2s ease;
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    color: var(--blue);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    z-index: 1;
+    text-shadow: 0 1px 4px #051c4611;
+    animation: fadeIn 1.2s ease;
+}
+
+.page-section {
+    max-width: 700px;
+    margin: 2rem auto;
+    background: rgba(255,255,255,0.18);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px #051c4611;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background 0.3s;
+}
+
+.page-section h2 {
+    color: var(--orange);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 8px #dd4e0022;
+}
+
+.page-section ul {
+    list-style: disc inside;
+    color: var(--blue);
+    font-size: 1.1rem;
+}
+
+.page-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.page-section label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: var(--blue);
+}
+
+.page-section input,
+.page-section textarea {
+    margin-top: 0.5rem;
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 2px solid var(--orange);
+    font-size: 1rem;
+    background: #fff;
+    color: var(--blue);
+    transition: border 0.2s;
+}
+
+.page-section input:focus,
+.page-section textarea:focus {
+    border: 2px solid var(--blue);
+    outline: none;
+}
+
+.page-section textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background: linear-gradient(120deg, #fff 80%, #dd4e0022 100%);
+    border-radius: 16px;
+    box-shadow: 0 2px 16px #051c4611;
+    padding: 2rem 1.2rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid #dd4e00;
+    position: relative;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px #051c4622;
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: #dd4e00;
+    margin-bottom: 1rem;
+}
+
+.service-title {
+    color: #051c46;
+    margin-bottom: 0.7rem;
+    font-weight: 700;
+}
+
+.service-desc {
+    color: #333;
+    font-size: 1.05rem;
+}
+
+footer {
+    background: var(--blue);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 1rem 1rem 1rem;
+    font-size: 1rem;
+    border-top: 3px solid var(--orange);
+    box-shadow: 0 -2px 16px #051c4611;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-social {
+    margin-bottom: 1rem;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin: 0 0.7rem;
+    color: var(--blue);
+    background: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.4rem;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px #051c4611;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.footer-social a:hover {
+    background: var(--orange);
+    color: var(--white);
+    box-shadow: 0 4px 16px #dd4e0088;
+    text-decoration: none;
+}
+
+.mission-vision-section h2 {
+    color: var(--blue);
+    margin-top: 2rem;
+}
+
+.mission-vision-section p {
+    color: #222;
+    font-size: 1.1rem;
+}
+
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  z-index: 1100;
+  color: var(--blue);
+  background: none;
+  border: none;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+/* Responsive navbar for mobile scaling */
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+    position: relative;
+  }
+  .navbar-logo {
+    margin-bottom: 0.5rem;
+  }
+  .hamburger {
+    display: block;
+  }
+  .navbar-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--white) 80%, var(--orange) 100%);
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100vw;
+    max-width: 100vw;
+    padding: 1rem 2rem;
+    box-shadow: 0 8px 32px #051c4622;
+    display: none;
+    gap: 1.2rem;
+    border-radius: 0 0 16px 16px;
+    z-index: 1050;
+    font-size: 1.2rem;
+  }
+  #nav-toggle:checked + .hamburger + .navbar .navbar-menu {
+    display: flex;
+  }
+  .navbar-menu a {
+    width: 100%;
+    padding: 0.7rem 0;
+    text-align: left;
+  }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
